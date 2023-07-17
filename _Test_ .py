@@ -4,21 +4,24 @@ print()
 
 # -F- ------------------------------------------------------
 
-def del_from_tuple(tpl, elem):                              # Функция удаления элемента из кортежа
-    if elem in tpl:                                         # Проверка, присутствует ли элемент в кортеже
-        elem_index = tpl.index(elem)                        # Извлечение индекса заданного элемента
-        tpl = tpl[:elem_index] + tpl[elem_index + 1:]       # Создание нового кортежа без указанного элемента 
-    return tpl                                              # Возврат получившегося кортежа
+def del_from_tuple(tpl, elem):
+    if elem in tpl:
+        elem_index = tpl.index(elem)
+        print('-> Что происходит в функции ?: ->'.rjust(99, '-'))
+        print('ДО иск. элем.:    ', end = '')
+        print(tpl[:elem_index])
+        print('Искомый элемент:     ', end = '')
+        print(f'   ({tpl[elem_index]})   ')
+        print('ПОСЛЕ иск. элем.:          ', end = '')
+        print(tpl[elem_index + 1:])
+        print('<- Что происходит в функции ?: <-'.rjust(99, '-'))
+        tpl = tpl[:elem_index] + tpl[elem_index + 1:]
+    return tpl
 
-# -F- ------------------------------------------------------
-# [ ] -------------------------------------------------->->->
-
-print('Вариант 2')
-tuple_2 = (1, 2, 3, 1, 2, 3, 4, 5, 2, 3, 4, 2, 4, 2)
-element_2 = 3
-print("Кортеж: ", tuple_2, ". Элемент: ", element_2)
-# print("Кортеж без заданного элемента: ", del_from_tuple(tuple_2, element_2))
-print("Кортеж:    ", del_from_tuple(tuple_2, element_2))
+tuple_3 = (2, 4, 6, 6, 4, 2)
+element_3 = 6
+print("Кортеж исходный: ", tuple_3, ". Элемент: ", element_3)
+print("Кортеж финальный: ", del_from_tuple(tuple_3, element_3))
 print()
 
 # [ ] -------------------------------------------------<-<-<-
